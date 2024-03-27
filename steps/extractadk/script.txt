@@ -1,0 +1,8 @@
+$ADK_DOWNLOADS="C:\attuneautomationworker\ADKDownloads"
+
+Set-Location "${ADK_DOWNLOADS}"
+
+& 'C:\Program Files\7-Zip\7z.exe' x "./adk_setup.iso" `
+    -oadk_setup
+    
+Get-ChildItem -Path "$ADK_DOWNLOADS" -Recurse

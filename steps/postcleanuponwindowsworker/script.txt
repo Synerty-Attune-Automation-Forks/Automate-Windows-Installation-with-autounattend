@@ -1,21 +1,18 @@
+$DIR="{automationWorkerWindowsBaseDirectory}"
 
-$DIR="C:\attuneautomationworker"
-
-Set-Location "${DIR}"
+if (Test-Path $DIR) {
+    Set-Location "${DIR}"
+} else {
+    New-Item -Path '${DIR}' -ItemType Directory
+    Test-Path '${DIR}'
+}
 
 $DIR="build-{newOsNode.fqn}"
 
 if (Test-Path $DIR) {
-    Remove-Item -Recurse $DIR
+    Remove-Item -Recurse $DIR -Force
 } else {
     Write-Host "No build directory to remove."
-}
-
-$DIR="drivers-{newOsNode.fqn}"
-if (Test-Path $DIR) {
-    Remove-Item -Recurse $DIR
-} else {
-    Write-Host "No drop in drivers directory to remove."
 }
 
 # The wildcard will allow removal of 
