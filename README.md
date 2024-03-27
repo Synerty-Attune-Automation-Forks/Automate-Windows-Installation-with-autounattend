@@ -9,7 +9,129 @@
 
 # Automate Windows Installation with autounattend
 
+This Attune Project provides an efficient and streamlined approach to 
+creating customised Windows installation ISOs using the autounattend. 
 
+The project caters to various Windows distributions and employs 
+multiple methodologies to facilitate the creation of these tailored 
+installation media. Whether you're working with large 5GB ISOs or building 
+a lightweight WinPE installer, this project has the resources and 
+blueprints you need to automate the process effectively.
+
+# Target Audience
+IT professionals and system administrators who regularly set up Windows 
+environments.
+
+Organisations looking to streamline their OS deployment process.
+
+Individuals seeking an efficient way to install or reinstall Windows on 
+their computers.
+
+# Key Features
+
+**Versatile Windows Support:** The project includes blueprints for a range 
+of Windows distributions, allowing for broad application across different 
+Windows environments.
+
+**Comprehensive Methodologies:** From mounting large 5GB ISO files to 
+constructing a WinPE installer ISO, the project encompasses diverse 
+techniques to suit various requirements and preferences.
+
+**Autounattend.xml Integration:** Central to the project is the utilisation 
+of autounattend.xml, which automates the Windows installation process and 
+eliminating manual input.
+
+**Blueprints for Customisation:** Each blueprint within the project is 
+designed to be clear and user-friendly, ensuring that even users with 
+minimal experience in Windows automation can achieve successful outcomes.
+
+**Efficient ISO Creation Process:** The project streamlines the ISO 
+creation process, making it faster and more reliable, whether you are an 
+IT professional setting up multiple systems or an individual user 
+installing Windows on a new PC.
+
+# autounattend Installation Methods
+
+There are three methods to autounattend install Windows OS in this Project.
+
+1. Single ISO
+2. Dual ISO
+3. WinPE ISO
+
+## Single ISO
+
+This is the simplest installation possible with the least 
+dependencies and configuration.
+
+The large 5GB Windows installation ISO is extracted and repackaged 
+with the drivers and configuration files.
+
+**Ideal Use Case:** Great fallback method for when no other 
+methods are easy.
+
+**Advantages:** Simple setup and process
+
+**Disadvantages:** Each installation being performed requires 
+unpacking, repacking, and transfering around a unique 5GB ISO 
+file.
+
+## Dual ISO
+
+The unalted Windows Installation ISO is deployed directly to 
+the device. Drivers and configuration files are attached to 
+the device in a separate ISO file.
+
+**Ideal Use Case:** Preferred method for a small number of 
+machines to build.
+
+**Advantages:** 
+* Simple setup and process
+* Light work load
+
+**Disadvantages:** Host requires capability to attach a second 
+CD-ROM (eg. oVirt cannot attach a second CD-ROM).
+
+## WinPE ISO
+
+Small WinPE ISO file for each device. Any aditional files 
+required during the installation are copied from a Samba Share 
+on the network.
+
+**Ideal Use Case:** Great for building a large number of 
+machines or if a small ISO file is required.
+
+**Advantages:**
+* Best for Enterprise
+* Small files
+* Fastest installation
+* Network efficient
+
+**Disadvantages:** Requires significant once off setup to gather the 
+WinPE files and setup a Samba Share.
+
+# Get Started
+
+If you haven't already, download and install the free 
+[Attune Community Edition](https://www.servertribe.com/).
+
+Clone the 
+[Automate Windows Installation with autounattend](https://github.com/Attune-Automation/Automate-Windows-Installation-with-autounattend) 
+Project.
+
+Review the **autounattend Installation Methods** and select a method.
+
+Review the description of the Blueprint you will run and following the 
+instructions.
+
+# Learn More
+
+Visit the 
+[Attune Documentation - Automate Operating System Installation](https://docs.attuneautomation.com/en/latest/topics/automated_os_installation.html)
+to learn how Attune streamlines the OS installation process.
+
+For other guides, visit the 
+[Attune Documentation - How-to Guides](https://docs.attuneautomation.com/en/latest/howto/index.html)
+.
 
 
 
@@ -54,6 +176,12 @@ This Project contains the following Blueprints.
 
 
 
+### Cleanup macOS or Linux Worker
+
+
+### Cleanup Windows Worker
+
+
 ### Create Windows 10 (Win10) autounattend Dual ISO on macOS or Linux Worker
 
 
@@ -80,16 +208,25 @@ This blueprint assumes the drivers drop in directory is at `{automationWorkerWin
 
 The Windows worker can run Linux commands using Windows Subsystem for Linux.
 
-### Create Windows autounattend WinPE ISO on macOS or Linux Worker
+### Create Windows autounattend WinPE ISO on macOS or Linux
 
+This Attune Blueprint creates a WinPE ISO file to install Windows OS on a 
+specific device.
+
+Builds Windows workstations and Windows Server machines with either BIOS or 
+UEFI boot.
+
+The process take the WinPE Essential files for the boot configuration being 
+built and repackages the ISO file with the requries configuration files to 
+automate the installation.
+
+
+
+The steps in the Blueprint are performed on macOS or Linux.
+
+A single WinPE ISO is created.
 
 ### Create Windows autounattend WinPE ISO on Windows Worker
-
-
-### Create Windows PE (WinPE) Plain ISO on macOS or Linux Worker
-
-
-### Create Windows PE (WinPE) Plain ISO on Windows Worker
 
 
 ### Create Windows Server 2016 (Win2016) autounattend Dual ISO on macOS or Linux Worker
@@ -167,53 +304,77 @@ This blueprint assumes the drivers drop in directory is at `{automationWorkerBas
 ### Create Windows Server 2022 (Win2022) autounattend Single ISO on Windows Worker
 
 
-### Deploy and Mount Win10 ISO To Node for Feature Install
+### Deploy and Extract Win10 ISO to Samba Share on Linux
+
+This Blueprint deploys the Windows 10 ISO files to the Samba Share server.
+
+### Deploy and Extract Win10 ISO to Smb Share on Windows
 
 
-### Deploy and Mount Win2016 ISO To Node for Feature Install
+### Deploy and Extract Win11 ISO to Smb Share on Windows
 
 
-### Deploy and Mount Win2019 ISO To Node for Feature Install
+### Deploy and Extract Win2016 ISO to Samba Share on Linux
+
+This Blueprint deploys the Windows Server 2016 ISO files to the Samba Share server.
+
+### Deploy and Extract Win2016 ISO to Smb Share on Windows
 
 
-### Deploy and Mount Win2022 ISO To Node for Feature Install
+### Deploy and Extract Win2019 ISO to Samba Share on Linux
+
+This Blueprint deploys the Windows Server 2019 ISO files to the Samba Share server.
+
+### Deploy and Extract Win2019 ISO to Smb Share on Windows
 
 
-### Deploy Win10 ISO to Samba Share
+### Deploy and Extract Win2022 ISO to Samba Share on Linux
 
-The Windows Desktop 10 ISO is placed on the Samba server at `${HOME}/windows_iso_data_for_winpe/windows10`.
+This Blueprint deploys the Windows Server 2022 ISO files to the Samba Share server.
 
-### Deploy Win2016 ISO to Samba Share
-
-The Windows Server 2016 ISO is placed on the Samba server at `${HOME}/windows_iso_data_for_winpe/windows2016`. 
-
-### Deploy Win2019 ISO to Samba Share
-
-The Windows Server 2019 ISO is placed on the Samba server at `${HOME}/windows_iso_data_for_winpe/windows2019`.
-
-### Deploy Win2022 ISO to Samba Share
-
-The Windows Server 2022 ISO is placed on the Samba server at `${HOME}/windows_iso_data_for_winpe/windows2022`.
-
-### Install Prerequisites on Windows Worker
+### Deploy and Extract Win2022 ISO to Smb Share on Windows
 
 
-### Perform Post Cleanup on macOS or Linux Worker
+### Deploy and Mount Win10 ISO To Node for Feature Install on Windows
 
 
-### Perform Post Cleanup on Windows Worker
+### Deploy and Mount Win2016 ISO To Node for Feature Install on Windows
 
+
+### Deploy and Mount Win2019 ISO To Node for Feature Install on Windows
+
+
+### Deploy and Mount Win2022 ISO To Node for Feature Install on Windows
+
+
+### Extract ISO and Configure Folder Permissions for Samba Share on Linux
+
+This blueprint is a repeatable process for the 
+`Deploy and Extract {windows_distribution} ISO to Samba Share` blueprints.
 
 ### Perform Test Win Node
 
 Performs basic tests for the built node.
 
-### Setup Samba on Linux
+### Unmount and Remove ISO From Node for Feature Install on Windows
 
-Sets up a Samba server with the folder at `${HOME}/windows_iso_data_for_winpe`.
 
-### Unmount and Remove ISO From Node for Feature Install
+### WinPE Essentials Extraction on macOS or Linux
 
+This Attune Blueprint extracts the essential WinPE files from a full 5GB 
+Windows installation ISO, reducing the ISO file size to less than 500MB.
+
+The steps in the Blueprint are performed on macOS or Linux.
+
+Two WinPE ISOs are created, one for BIOS boot and another for UEFI boot.
+
+### WinPE Essentials Extraction on Windows
+
+Sets up the "plain" WinPE skeleton files on Windows Worker at `C:\WinPE_amd64`.
+
+This folder can be copied and then it's `.\media\sources\boot.wim` file can be modified for an automated unattended Windows install.
+
+This folder works for both BIOS and UEFI boot methods.
 
 
 
@@ -227,11 +388,19 @@ Sets up a Samba server with the folder at `${HOME}/windows_iso_data_for_winpe`.
 | Automation Worker Linux Node | Linux/Unix Node | `automationworkerlinuxnode` | The Linux automation worker node used to perform tasks to create the ISO. |
 | Automation Worker Linux User | Linux/Unix Credential | `automationworkerlinuxuser` | Non privilege user on the Automation Worker node. |
 | Automation Worker Linux User: root | Linux/Unix Credential | `automationworkerlinuxuserroot` | root user on the Linux Automation Worker node. |
+| Automation Worker Windows Base Directory | Text | `automationworkerwindowsbasedirectory` | Base directory for deploying temporary files to build the ISO on a Windows Worker.<br><br>eg. "C:/attune_auto_installer" |
+| Automation Worker Windows Base Directory Share Path | Text | `automationworkerwindowsbasedirectorysharepath` | eg. "/c$/attune_auto_installer" |
 | Automation Worker Windows Node | Windows Node | `automationworkerwindowsnode` | The Windows automation worker node used to perform tasks to create the ISO. |
 | Automation Worker Windows User: Administrator | Windows Credential | `automationworkerwindowsuseradministrator` | Administrator user on the Windows Automation Worker node. |
 | Drivers and Autounattend Drive Letter | Text | `driversandautounattenddriveletter` | The Windows drive letter containing the drivers and autounattend.xml as a single letter.<br><br>This will be different for each install method.<br>D for "Single ISO"<br>E for "Dual ISO"<br>X for "WinPE ISO" |
+| Is BIOS Boot | Text | `isbiosboot` |  |
+| Is UEFI Boot | Text | `isuefiboot` |  |
 | Is Win10 BIOS | Text | `iswin10bios` |  |
 | Is Win10 UEFI | Text | `iswin10uefi` |  |
+| Is Win11 BIOS | Text | `iswin11bios` |  |
+| Is Win11 UEFI | Text | `iswin11uefi` |  |
+| Is Windows Server | Text | `iswindowsserver` |  |
+| Is Windows Workstation | Text | `iswindowsworkstation` |  |
 | Is WinPE Kickstart | Text | `iswinpekickstart` | Set TRUE for WinPE kickstarts and FALSE for Single ISO and Dual ISO kickstarts. |
 | Is Win Server BIOS | Text | `iswinserverbios` |  |
 | Is Win Server UEFI | Text | `iswinserveruefi` |  |
@@ -247,7 +416,6 @@ Sets up a Samba server with the folder at `${HOME}/windows_iso_data_for_winpe`.
 | Post Install Setup Script Drive Letter | Text | `postinstallsetupscriptdriveletter` | The Windows drive letter containing the Post Install PowerShell setup script post_install_setup.ps1 as a single letter as seen by the Windows installer.<br><br>This will be different for each install method.<br><br>D for "Single ISO"<br>E for "Dual ISO"<br>C for "WinPE ISO" |
 | Samba Server IP Address | Text | `sambaserveripaddress` |  |
 | Windows Folder On Samba | Text | `windowsfolderonsamba` | The Windows folder on the Samba server. This parameter is used by startnet.cmd and can take these values:<br><br>- windows10<br>- windows2016<br>- windows2019<br>- windows2022 |
-| WSL2 Automation Worker Linux User | Linux/Unix Credential | `wsl2automationworkerlinuxuser` | Non privilege user on the WSL2 Automation Worker node. |
 
 
 
@@ -259,11 +427,13 @@ Sets up a Samba server with the folder at `${HOME}/windows_iso_data_for_winpe`.
 | Post Install Setup PowerShell Script | Version Controlled Files | This file is called by the "<FirstLogonCommands>" section in the autounattend.xml file.<br><br>This script is run once post installation of the WIndows operating system. |
 | Test File | Version Controlled Files | Test file for testing push files. |
 | Win10 ISO | Large Archives | Download from https://www.microsoft.com/en-us/software-download/windows10ISO/.<br><br>Please select the English (United States) version. |
+| Win11 ISO | Large Archives | Download from https://www.microsoft.com/en-us/software-download/windows11<br><br>Please select the English (United States) version. |
 | Win2016 ISO | Large Archives | Download from https://www.microsoft.com/en-us/evalcenter/download-windows-server-2016.<br><br> |
 | Win2019 ISO | Large Archives | Download from https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019. |
 | Win2022 ISO | Large Archives | Download from https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022. |
 | Windows Unattended config | Version Controlled Files | For these Windows versions:<br>* WIndows Desktop 10<br>* WIndows Server 2016<br>* WIndows Server 2019<br>* WIndows Server 2022<br><br>For these boot methods:<br>* BIOS<br>* UEFI |
 | WinPE startnet.cmd | Version Controlled Files | The startnet.cmd is run by WinPE. This script:<br>1. Installs drivers from "attune_drivers".<br>2. Sets the IP address.<br>3. Mounts the Samba server that hosts the extracted Windows ISOs as the "Z" drive.<br>4. Runs Windows setup.exe.<br><br>The Mako parameter "windowsFolderOnSamba" can have these values:<br><br>- windows10<br>- windows2016<br>- windows2019<br>- windows2022 |
+| Windows Unattended config v2 | Version Controlled Files |  |
 
 
 
