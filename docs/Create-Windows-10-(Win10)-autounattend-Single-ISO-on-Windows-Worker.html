@@ -542,7 +542,7 @@ if ((-Not ${{isWin10Bios}}) -and `
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-if ( ${{isWin10Bios}} -or ${{isWin10Uefi}} ) {
+if ( ${{isWindowsWorkstation}} ) {
 
     $HOSTNAME = &quot;{newOsNode.hostname}&quot;
     
@@ -550,14 +550,14 @@ if ( ${{isWin10Bios}} -or ${{isWin10Uefi}} ) {
     $MAX_LENGTH = 15
     
     if ( $LENGTH -gt $MAX_LENGTH ) {
-        Write-Host &quot;Length of hostname ${LENGTH} for Win10 can&#x27;t be more than ${MAX_LENGTH}.&quot;
+        Write-Host &quot;Length of hostname `&quot;${HOSTNAME}`&quot;  for Win10 is ${LENGTH} and can&#x27;t be more than ${MAX_LENGTH}.&quot;
         false
     } else {
-        Write-Host &quot;Length of hostname ${LENGTH} is less than or equal to ${MAX_LENGTH}.&quot;
+        Write-Host &quot;Length of hostname `&quot;${HOSTNAME}`&quot; for Win10 is ${LENGTH} which is less than or equal to ${MAX_LENGTH}.&quot;
     }
     
 } else {
-    Write-Host &quot;Not Win10, skipping.&quot;
+    Write-Host &quot;Not Windows Workstation, skipping.&quot;
 }
                 </code>
             </pre>
@@ -1018,7 +1018,7 @@ dd if=$F of=boot.img bs=2048 count=8 skip=$OFFSET;
     
     Set-Content -Path $FILE -NoNewline -Value $scriptContent
 
-    wsl -d Ubuntu --user {wsl2AutomationWorkerLinuxUser.user} --exec bash &quot;${FILE}&quot;
+    wsl -d Ubuntu --user root --exec bash &quot;${FILE}&quot;
 
     if ($LASTEXITCODE -ne 0) {
         Write-Error &#x27;Failed to extract boot.img&#x27;
@@ -1125,7 +1125,11 @@ if (test-Path &quot;${ISO_WILDCARD}&quot; -pathtype leaf) {
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Deploys the post install setup PowerShell script <code>post_install_setup.ps1</code> to <code>/c$/attuneautomationworker/build-{newOsNode.fqn}</code>..</p>
+                                <p>Creates a <code>post_install.wim</code> Windows Imaging Format file on Windows Worker.</p>
+<p>The purpose of this file is to overlay onto the <code>C</code> drive any files we want 
+for the Windows Installer to use. In this case we want to deploy a post 
+install setup PowerShell script at <code>C:\post_install_setup.ps1</code> that is 
+called by <code>autounattend.xml</code> <code>&lt;FirstLogonCommands&gt;</code>'s section.</p>
                             </p>
                         </div>
                     </div>
@@ -1159,7 +1163,7 @@ if (test-Path &quot;${ISO_WILDCARD}&quot; -pathtype leaf) {
     </div>
     <div class="row py-1">
         <code class="language-bash">
-/c$/attuneautomationworker/build-{newOsNode.fqn}
+{automationWorkerWindowsBaseDirectorySharePath}/build-{newOsNode.fqn}/post_install_wim, relative to the home directory
         </code>
     </div>
 
@@ -1211,18 +1215,11 @@ if (test-Path &quot;${ISO_WILDCARD}&quot; -pathtype leaf) {
 
     <div class="row">
         <p>
-            <p>For these Windows versions:
-* WIndows Desktop 10
-* WIndows Server 2016
-* WIndows Server 2019
-* WIndows Server 2022</p>
-<p>For these boot methods:
-* BIOS
-* UEFI</p>
+            
         </p>
         <p>
             Copy the File(s)
-            <strong>Windows_Unattended_config.tar</strong>
+            <strong>Windows_Unattended_config_v2.tar</strong>
             to the target node.
         </p>
         <p>
@@ -1230,7 +1227,7 @@ if (test-Path &quot;${ISO_WILDCARD}&quot; -pathtype leaf) {
     </div>
     <div class="row py-1">
         <code class="language-bash">
-/c$/attuneautomationworker/build-{newOsNode.fqn}
+{automationWorkerWindowsBaseDirectorySharePath}/build-{newOsNode.fqn}, relative to the home directory
         </code>
     </div>
 
@@ -1290,8 +1287,8 @@ Set-Location &quot;${BUILD_DIR}&quot;
 $DRIVERS_DROP_IN_FOLDER = &quot;C:\attuneautomationworker\drivers-{newOsNode.fqn}&quot;
 $DESTINATION_DRIVERS_FOLDER = &quot;drivers&quot;
 
-if ( -Not (Test-Path &quot;$DESTINATION_DRIVERS_FOLDER&quot;) ) {
-  New-Item $DESTINATION_DRIVERS_FOLDER -ItemType Directory
+if ( -Not (Test-Path &quot;${DESTINATION_DRIVERS_FOLDER}&quot;) ) {
+  New-Item &quot;${DESTINATION_DRIVERS_FOLDER}&quot; -ItemType Directory
 }
 
 if ( Test-Path &quot;${DRIVERS_DROP_IN_FOLDER}&quot; ) {
@@ -1362,7 +1359,7 @@ if ( ${{isWin10Uefi}} -or ${{isWinServerUefi}} ) {
 
     Set-Location $BUILD_DIR
 
-    Set-Location efi/microsoft/boot/
+    Set-Location efi\microsoft\boot
     
     Copy-Item -Path .\efisys_noprompt.bin -Destination .\efisys.bin
 } else {
@@ -1460,7 +1457,7 @@ mkisofs \
 
     Set-Content -Path $FILE -NoNewline -Value $scriptContent
 
-    wsl -d Ubuntu --user {wsl2AutomationWorkerLinuxUser.user} --exec bash &quot;${FILE}&quot;
+    wsl -d Ubuntu --user root --exec bash &quot;${FILE}&quot;
 
     if ($LASTEXITCODE -ne 0) {
         Write-Error &#x27;Failed to create $ISO_BUILD\kickstart_{newOsNode.fqn}.iso&#x27;
@@ -1567,7 +1564,7 @@ mkisofs \
 
     Set-Content -Path $FILE -NoNewline -Value $scriptContent
 
-    wsl -d Ubuntu --user {wsl2AutomationWorkerLinuxUser.user} --exec bash &quot;${FILE}&quot;
+    wsl -d Ubuntu --user root --exec bash &quot;${FILE}&quot;
 
     if ($LASTEXITCODE -ne 0) {
         Write-Error &#x27;Failed to extract boot.img&#x27;

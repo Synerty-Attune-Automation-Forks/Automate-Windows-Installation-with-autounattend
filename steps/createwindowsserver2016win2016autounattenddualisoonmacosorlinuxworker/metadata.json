@@ -7,35 +7,27 @@
     "key": "createwindowsserver2016win2016autounattenddualisoonmacosorlinuxworker", 
     "links": [
         {
-            "order": 50, 
-            "stepKey": "checkinputparametervaluesforwindowsserversingleisokickstartonmacosorlinuxworker"
-        }, 
-        {
-            "order": 100, 
-            "stepKey": "checkifipaddressisinsubnetonmacosorlinuxworker"
-        }, 
-        {
-            "order": 150, 
-            "stepKey": "checkifgatewayipaddressisinsubnetonmacosorlinuxworker"
-        }, 
-        {
             "order": 200, 
-            "stepKey": "cleanupbuildfilesandisosonmacosorlinuxworker"
+            "stepKey": "validatethecreatewindowsserverautounattendisoplanparameters"
         }, 
         {
             "order": 250, 
-            "stepKey": "deploywin2016dvdisoonmacosorlinuxworker"
+            "stepKey": "cleanupbuildfilesandisosonmacosorlinuxworker"
         }, 
         {
             "order": 300, 
-            "stepKey": "extractwindowsbootimgonmacosorlinuxworker"
+            "stepKey": "deploywin2016dvdisoonmacosorlinuxworker"
         }, 
         {
             "order": 350, 
-            "stepKey": "extractwindowsisoonmacosorlinuxworker"
+            "stepKey": "extractwindowsbootimgonmacosorlinuxworker"
         }, 
         {
             "order": 400, 
+            "stepKey": "extractwindowsisoonmacosorlinuxworker"
+        }, 
+        {
+            "order": 450, 
             "stepKey": "copyefisysnopromptbinintoefisysbinonmacosorlinuxworker"
         }, 
         {
@@ -48,11 +40,11 @@
         }, 
         {
             "order": 700, 
-            "stepKey": "deploywindowsunattendedconfigonmacosorlinuxworker"
+            "stepKey": "deploywindowsunattendedconfigonmacosorlinux"
         }, 
         {
             "order": 800, 
-            "stepKey": "deploypostsetuppowershellscriptonmacosorlinuxworker"
+            "stepKey": "deploypostsetuppowershellscriptonmacosorlinux"
         }, 
         {
             "order": 900, 
