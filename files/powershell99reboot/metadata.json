@@ -1,0 +1,6 @@
+{
+    "externalUuid4": "20ab0592-69e8-4929-979c-05090b8b9c83", 
+    "key": "powershell99reboot", 
+    "name": "PowerShell 99 Reboot", 
+    "type": "com.servertribe.attune.tuples.FileArchiveVersionedTuple"
+}

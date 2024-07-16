@@ -1,0 +1,6 @@
+{
+    "externalUuid4": "c23a7134-c43b-43c6-ad2e-c8c4b903337c", 
+    "key": "powershell20enablecifs", 
+    "name": "PowerShell 20 Enable CIFS", 
+    "type": "com.servertribe.attune.tuples.FileArchiveVersionedTuple"
+}
