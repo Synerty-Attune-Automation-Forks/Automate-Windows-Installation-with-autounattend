@@ -1,0 +1,6 @@
+{
+    "externalUuid4": "294b7874-a9d8-4681-abb3-59d07780f443", 
+    "key": "powershell01checkfunction", 
+    "name": "PowerShell 01 Check Function", 
+    "type": "com.servertribe.attune.tuples.FileArchiveVersionedTuple"
+}

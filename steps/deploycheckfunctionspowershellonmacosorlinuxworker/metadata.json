@@ -1,0 +1,15 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "f41fc460-3bd9-4c9f-b42e-bc631b1b0373", 
+    "isBlueprint": true, 
+    "key": "deploycheckfunctionspowershellonmacosorlinuxworker", 
+    "links": [
+        {
+            "stepKey": "deploycheckfunctionspowershellonmacosorlinux"
+        }
+    ], 
+    "name": "Deploy Check Functions Powershell on macOS or Linux Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

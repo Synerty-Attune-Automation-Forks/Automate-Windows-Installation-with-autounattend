@@ -1,0 +1,15 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "4965a849-342d-4e58-be9b-7181343d65ff", 
+    "isBlueprint": true, 
+    "key": "deployrebootpowershellonmacosorlinuxworker", 
+    "links": [
+        {
+            "stepKey": "deployrebootpowershellonmacosorlinux"
+        }
+    ], 
+    "name": "Deploy Reboot Powershell on macOS or Linux Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}
