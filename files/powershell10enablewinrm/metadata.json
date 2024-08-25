@@ -1,0 +1,6 @@
+{
+    "externalUuid4": "f1cc3c28-97ff-405d-92a1-75ae9297eda4", 
+    "key": "powershell10enablewinrm", 
+    "name": "PowerShell 10 Enable WinRM", 
+    "type": "com.servertribe.attune.tuples.FileArchiveVersionedTuple"
+}

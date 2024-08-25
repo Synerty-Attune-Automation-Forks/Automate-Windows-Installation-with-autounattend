@@ -1,0 +1,15 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "d676a3c1-4458-4efd-ba16-53bb94456aa8", 
+    "isBlueprint": true, 
+    "key": "deployenablewinrmpowershellonmacosorlinuxworker", 
+    "links": [
+        {
+            "stepKey": "deployenablewinrmpowershellonmacosorlinux"
+        }
+    ], 
+    "name": "Deploy Enable WinRM Powershell on macOS or Linux Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

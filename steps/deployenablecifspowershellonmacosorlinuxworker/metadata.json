@@ -1,0 +1,15 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "286da856-0cef-48d0-9901-bdfce45fc5b1", 
+    "isBlueprint": true, 
+    "key": "deployenablecifspowershellonmacosorlinuxworker", 
+    "links": [
+        {
+            "stepKey": "deployenablecifspowershellonmacosorlinux"
+        }
+    ], 
+    "name": "Deploy Enable CIFS Powershell on macOS or Linux Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}
