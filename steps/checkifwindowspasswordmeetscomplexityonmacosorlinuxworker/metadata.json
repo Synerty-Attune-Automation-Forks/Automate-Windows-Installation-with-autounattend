@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": "stop", 
+    "enabled": true, 
+    "externalUuid4": "fc48823b-5d09-4761-998d-e077f0c41be2", 
+    "interpreter": 1, 
+    "key": "checkifwindowspasswordmeetscomplexityonmacosorlinuxworker", 
+    "name": "Check if Windows Password Meets Complexity on macOS or Linux Worker", 
+    "osCredKey": "automationworkerlinuxuser", 
+    "serverKey": "automationworkerlinuxnode", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}

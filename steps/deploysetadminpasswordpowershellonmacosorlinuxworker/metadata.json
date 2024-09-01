@@ -1,0 +1,18 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "6c428a90-bd9b-472e-a46a-3e7cbe6d002f", 
+    "isBlueprint": true, 
+    "key": "deploysetadminpasswordpowershellonmacosorlinuxworker", 
+    "links": [
+        {
+            "stepKey": "checkifwindowspasswordmeetscomplexityonmacosorlinuxworker"
+        }, 
+        {
+            "stepKey": "deploysetadminpasswordpowershellonmacosorlinux"
+        }
+    ], 
+    "name": "Deploy  Set Admin Password Powershell on macOS or Linux Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

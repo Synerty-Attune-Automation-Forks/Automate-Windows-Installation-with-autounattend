@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": "continue", 
+    "enabled": true, 
+    "externalUuid4": "5f67d96e-b518-497b-bcdd-93e233d56b6f", 
+    "interpreter": 2, 
+    "interpreterCommand": null, 
+    "interpreterScriptExt": null, 
+    "interpreterScriptSyntax": null, 
+    "key": "disablewinrmforvmtemplate", 
+    "name": "Disable WinRM for VM Template", 
+    "osCredKey": "newoswindowsuseradministrator", 
+    "serverKey": "newoswindowsnode", 
+    "successExitCode": 0, 
+    "timeout": 30, 
+    "type": "com.servertribe.attune.tuples.StepWinRmTuple"
+}

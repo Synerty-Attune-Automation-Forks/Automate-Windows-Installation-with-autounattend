@@ -1,0 +1,15 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "100a17b3-3c9c-409f-afb6-062465aa256d", 
+    "isBlueprint": true, 
+    "key": "deploysetdnssearchsuffixpowershellonmacosorlinuxworker", 
+    "links": [
+        {
+            "stepKey": "deploysetdnssearchsuffixpowershellonmacosorlinux"
+        }
+    ], 
+    "name": "Deploy Set DNS Search Suffix Powershell on macOS or Linux Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

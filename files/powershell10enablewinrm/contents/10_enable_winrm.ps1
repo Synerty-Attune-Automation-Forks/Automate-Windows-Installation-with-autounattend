@@ -16,5 +16,9 @@ Chk $?
 Set-Service WinRM -startuptype automatic
 Chk $?
 
+if (Get-NetFirewallRule -DisplayName 'WinRM HTTPS' -ErrorAction SilentlyContinue) {
+    Remove-NetFirewallRule -DisplayName 'WinRM HTTPS'
+}
+
 New-NetFirewallRule -DisplayName 'WinRM HTTPS' -Name 'WinRM_HTTPS' -Profile Any -LocalPort 5986 -Protocol TCP
 Chk $?

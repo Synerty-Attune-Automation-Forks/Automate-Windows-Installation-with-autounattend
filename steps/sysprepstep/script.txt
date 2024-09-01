@@ -1,0 +1,2 @@
+REM This breaks ESXi deploying from template.
+REM C:\Windows\System32\Sysprep\sysprep.exe /generalize /mode:vm /quiet

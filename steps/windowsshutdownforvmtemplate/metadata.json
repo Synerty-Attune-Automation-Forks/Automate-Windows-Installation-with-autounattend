@@ -1,0 +1,18 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "45490ae6-86f2-41d3-8a73-ebafd6e02a87", 
+    "isBlueprint": true, 
+    "key": "windowsshutdownforvmtemplate", 
+    "links": [
+        {
+            "stepKey": "disablewinrmforvmtemplate"
+        }, 
+        {
+            "stepKey": "shutdownwindows"
+        }
+    ], 
+    "name": "Windows Shutdown for VM Template", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

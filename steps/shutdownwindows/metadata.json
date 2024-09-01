@@ -1,16 +1,16 @@
 {
-    "actionOnStepFail": "stop", 
+    "actionOnStepFail": "continue", 
     "enabled": true, 
-    "externalUuid4": "4a068e8a-6a2f-4f29-961c-5f056061bb0d", 
+    "externalUuid4": "f9a009c5-dc04-43c9-9ad0-7c0d32179002", 
     "interpreter": 2, 
-    "interpreterCommand": "", 
+    "interpreterCommand": null, 
     "interpreterScriptExt": null, 
-    "interpreterScriptSyntax": "", 
-    "key": "testecho", 
-    "name": "Test Echo", 
+    "interpreterScriptSyntax": null, 
+    "key": "shutdownwindows", 
+    "name": "Shutdown Windows", 
     "osCredKey": "newoswindowsuseradministrator", 
     "serverKey": "newoswindowsnode", 
     "successExitCode": 0, 
-    "timeout": 60, 
+    "timeout": 180, 
     "type": "com.servertribe.attune.tuples.StepWinRmTuple"
 }

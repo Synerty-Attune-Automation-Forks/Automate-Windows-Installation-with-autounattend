@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": "continue", 
+    "enabled": true, 
+    "externalUuid4": "0770efc4-c3a9-4618-858d-6d0de63818b4", 
+    "interpreter": 1, 
+    "interpreterCommand": null, 
+    "interpreterScriptExt": null, 
+    "interpreterScriptSyntax": null, 
+    "key": "sysprepstep", 
+    "name": "Sysprep Step", 
+    "osCredKey": "newoswindowsuseradministrator", 
+    "serverKey": "newoswindowsnode", 
+    "successExitCode": 0, 
+    "timeout": 180, 
+    "type": "com.servertribe.attune.tuples.StepWinRmTuple"
+}

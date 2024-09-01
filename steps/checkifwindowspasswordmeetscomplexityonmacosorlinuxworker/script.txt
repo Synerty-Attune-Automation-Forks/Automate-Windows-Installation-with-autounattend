@@ -1,0 +1,79 @@
+TERM=dumb pwsh -NonInteractive -NoProfile -Command - <<'EOF'
+Set-StrictMode -Version Latest
+$ErrorActionPreference = "Stop"
+
+function Test-PasswordComplexity {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$Password
+    )
+
+    # Default Windows Server 2022 password complexity requirements:
+    # 1. At least 14 characters long
+    # 2. Contains characters from at least 3 of the following 4 categories:
+    #    - English uppercase characters (A through Z)
+    #    - English lowercase characters (a through z)
+    #    - Base 10 digits (0 through 9)
+    #    - Non-alphabetic characters (for example, !, $, #, %)
+
+    $minLength = 14
+    $categoriesRequired = 3
+
+    $categoriesMet = 0
+    $errorMessages = @()
+
+    # Check length
+    if ($Password.Length -lt $minLength) {
+        $errorMessages += "Password must be at least $minLength characters long."
+    }
+
+    # Check for uppercase letters
+    if ($Password -cmatch "[A-Z]") { $categoriesMet++ }
+
+    # Check for lowercase letters
+    if ($Password -cmatch "[a-z]") { $categoriesMet++ }
+
+    # Check for digits
+    if ($Password -match "\d") { $categoriesMet++ }
+
+    # Check for non-alphanumeric characters
+    if ($Password -match "[\W_]") { $categoriesMet++ }
+
+    # Check if enough categories are met
+    if ($categoriesMet -lt $categoriesRequired) {
+        $errorMessages += "Password must contain characters from at least $categoriesRequired of the following categories: uppercase letters, lowercase letters, digits, and non-alphanumeric characters."
+    }
+
+    # Return result
+    if ($errorMessages.Count -eq 0) {
+        return @{
+            IsCompliant = $true
+            Messages = "Password meets complexity requirements."
+        }
+    } else {
+        return @{
+            IsCompliant = $false
+            Messages = $errorMessages
+        }
+    }
+}
+
+try {
+    $result = Test-PasswordComplexity `
+        -Password '{newOsWindowsUserAdministrator.password}'
+} catch {
+    Write-Error "Password testing failed, you likely have a ' in the password."
+}
+
+if ($result.IsCompliant) {
+    Write-Host "Password is compliant: $($result.Messages)"
+} else {
+    Write-Host "Password is not compliant:"
+    foreach ($message in $result.Messages) {
+        Write-Host "ERROR - $message" 
+    }
+
+    exit -1
+}
+
+EOF
