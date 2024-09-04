@@ -1,11 +1,11 @@
 {
     "externalUuid4": "1627cee6-5271-4436-b21a-4d53fe63a25c", 
-    "fileName": "SERVER_EVAL_x64FRE_en-us.iso", 
+    "fileName": "win2022.iso", 
     "formatKey": "tar", 
     "key": "win2022iso", 
-    "md5": "e7908933449613edc97e1b11180429d1", 
+    "md5": "2f36ecabef90c7cb2358edabd3cf3949", 
     "name": "Win2022 ISO", 
     "remoteUri": null, 
-    "size": 5044094976, 
+    "size": 5945200640, 
     "type": "com.servertribe.attune.tuples.FileArchiveLargeTuple"
 }
