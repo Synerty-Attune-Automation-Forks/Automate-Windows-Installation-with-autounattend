@@ -1,0 +1,1 @@
+Disable the WinRM service, so that when the VM is deployed from a template, Attune doesn't think The VM is up (WinRM port 5986 is up) before the out of the box customisations are complete.

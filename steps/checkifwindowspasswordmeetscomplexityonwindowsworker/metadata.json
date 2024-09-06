@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": "stop", 
+    "enabled": true, 
+    "externalUuid4": "72f31213-bb3b-4e36-97bb-eb9b3555ddd0", 
+    "interpreter": 2, 
+    "interpreterCommand": null, 
+    "interpreterScriptExt": null, 
+    "interpreterScriptSyntax": null, 
+    "key": "checkifwindowspasswordmeetscomplexityonwindowsworker", 
+    "name": "Check if Windows Password Meets Complexity on Windows Worker", 
+    "osCredKey": "automationworkerwindowsuseradministrator", 
+    "serverKey": "automationworkerwindowsnode", 
+    "successExitCode": 0, 
+    "timeout": 60, 
+    "type": "com.servertribe.attune.tuples.StepWinRmTuple"
+}

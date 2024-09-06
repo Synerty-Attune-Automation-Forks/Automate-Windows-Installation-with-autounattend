@@ -1,0 +1,1 @@
+After this step, ensure that the virtual or physical machine is shutdown.

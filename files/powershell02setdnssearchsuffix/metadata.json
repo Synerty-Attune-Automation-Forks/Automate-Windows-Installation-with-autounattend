@@ -1,0 +1,6 @@
+{
+    "externalUuid4": "742b1bf6-14ab-4b51-b455-53632b6a9f22", 
+    "key": "powershell02setdnssearchsuffix", 
+    "name": "PowerShell 02 Set DNS Search Suffix", 
+    "type": "com.servertribe.attune.tuples.FileArchiveVersionedTuple"
+}

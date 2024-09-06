@@ -1,0 +1,22 @@
+{
+    "actionOnStepFail": "stop", 
+    "archiveKey": "powershell02setdnssearchsuffix", 
+    "deployPath": "{automationWorkerLinuxBaseDirectory}/build-{newOsNode.fqn}/post_install_wim", 
+    "enabled": true, 
+    "externalUuid4": "69ca6e2b-10f4-40e4-9372-d6a19cfb1cef", 
+    "key": "deploysetdnssearchsuffixpowershellonmacosorlinux", 
+    "makoFileNames": [
+        "02_set_dns_search_suffix.ps1"
+    ], 
+    "makoParameters": [
+        {
+            "name": "newOsNode", 
+            "parameterKey": "newoswindowsnode", 
+            "parameterType": "c.s.s.b.phv.WindowsServer"
+        }
+    ], 
+    "name": "Deploy Set DNS Search Suffix PowerShell on macOS or Linux", 
+    "osCredKey": "automationworkerlinuxuser", 
+    "serverKey": "automationworkerlinuxnode", 
+    "type": "com.servertribe.attune.tuples.StepPushDesignFileCompiledTuple"
+}
